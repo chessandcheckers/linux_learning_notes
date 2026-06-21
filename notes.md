@@ -25,3 +25,20 @@ Again, used the `cat` command to open this but with a slight twist.
 ---
 ## Level 1 -> 2
 
+Upon using `ls` we encounter another problem - a different type of filename called '--spaces in this filename'
+We shall use cat to solve this too, but we must find a way to eliminate the spaces in the filename
+(no pun intended)
+We may use either single quotes or the backslash.
+
+---
+## Level 2 -> 3
+
+This is where things start getting multi-layered.
+We must first change the directory to `inhere` then figure out how to access the files.
+Using `ls` is not enough as `ls` only shows the files which are visible to all. 
+In this level, we are introduced to hidden files, which we can open using `ls -a` command.
+After this, we again use the `cat` command to open the file.
+
+---
+## Level 3 -> 4
+
