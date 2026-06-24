@@ -42,3 +42,46 @@ After this, we again use the `cat` command to open the file.
 ---
 ## Level 3 -> 4
 
+This is where we start to encounter multiple files. 
+After changing the directory to `inhere` we are shown multiple file like -file00, -file01, etc.
+The aim of this level is to check the filetype of each folder, but without opening each individual folder. 
+
+To achieve this, we use the `file./*` command to identify the type of data stored in each folder.
+The output is all the folders and the type of data stored in them. 
+
+---
+## Level 4 -> 5
+
+Inside `inhere` we are faced with various subdirectories containing many files. The goal is to search for the only human-readable text among them.
+Previously, we used `file./*`. This however wont work here as we are searching for the file within directories, not just filders. 
+
+We shall use `find` command for this. 
+The format of this command is: `find [WHERE] [WHAT TO LOOK FOR]`
+
+Here, the [WHERE] part is the current directory, therefore we use `find .`
+For home directory we use `find ~`. 
+For the entire system we use `find /`
+
+An example of this would be: `find . -type f`, where `-type f` stands for file types.
+`-type d` is for directories, `-type l` is for links. 
+
+In case we are searching for specific names, we will use:
+`find . -name "[name.filetype]"`
+
+If we are searching for files of same type then:
+`find . -name "*.txt"`
+
+---
+## Level 5 -> 6
+
+Our task here is to find the directory inside `inhere` which satisfies the following conditions:
+- human readable text
+- exactly 1033 bytes in size
+- not executable
+
+Again, we use `find` to execute this.
+For the size, we define it as `-size 1033c`. The `c` we see beside the `size` parameter is used for bytes.
+
+---
+## Level 6 -> 7
+
