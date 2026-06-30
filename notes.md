@@ -85,9 +85,6 @@ For the size, we define it as `-size 1033c`. The `c` we see beside the `size` pa
 ---
 ## Level 6 -> 7
 
-
-### 📄 Task
-
 The task here is to find a file somewhere on the server that satisfies the following conditions:
 
 - owned by user `bandit7`
@@ -96,4 +93,7 @@ The task here is to find a file somewhere on the server that satisfies the follo
 
 Unlike previous levels, the target file is not located inside the current directory. Therefore, we need to search the entire filesystem for the owner, group, size of the file. 
 We do so using the `find` command.
+---
+## Level 7 -> 8
+
 
