@@ -91,9 +91,16 @@ The task here is to find a file somewhere on the server that satisfies the follo
 - belongs to group `bandit6`
 - exactly 33 bytes in size
 
-Unlike previous levels, the target file is not located inside the current directory. Therefore, we need to search the entire filesystem for the owner, group, size of the file. 
+Unlike previous levels, the target file is not located inside the current directory.
+Therefore, we need to search the entire filesystem for the owner, group, size of the file. 
 We do so using the `find` command.
 ---
 ## Level 7 -> 8
 
+This level requires us to search for a specific word which has the password. 
+We have to search for this word among a file containing ginormous amount of data, which is impossible to search manually.
 
+For situations like this, we use the `grep` command. 
+`grep` is used to search for a word inside a file. It prints entire lines containing the needful data.
+
+The query should be sequenced as: `grep (word) (filename).(filetype)`
