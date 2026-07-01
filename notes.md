@@ -94,6 +94,7 @@ The task here is to find a file somewhere on the server that satisfies the follo
 Unlike previous levels, the target file is not located inside the current directory.
 Therefore, we need to search the entire filesystem for the owner, group, size of the file. 
 We do so using the `find` command.
+
 ---
 ## Level 7 -> 8
 
@@ -104,3 +105,23 @@ For situations like this, we use the `grep` command.
 `grep` is used to search for a word inside a file. It prints entire lines containing the needful data.
 
 The query should be sequenced as: `grep (word) (filename).(filetype)`
+
+---
+## Level 8 -> 9
+
+Here we need to combine commands to access the necessary password.
+Withing data.txt there exists a unique line of text which is our password. 
+
+We cannot use `grep` because the data is not known to us and it is unique. `grep` searches only for known text. 
+
+We use `sort` to sort the data within our file. 
+Since we are searching for only unique data, we shall use a combination of `uniq -u`.
+`uniq` is used to remove consecutive duplicates and leaves a single copy of the data. 
+`uniq -d` shows only duplicate values.
+`uniq -u` shows only lines that appear exactly once.
+
+Structuring the whole thing is important. We use the command `sort data.txt | uniq -u`.
+The pipeline `|` here acts as a bridge between the two commands. `sort data.txt` is one command and `uniq -u` is the other. 
+`|` is used here because we want the output of the left side command to become the input of the right side. 
+
+---
