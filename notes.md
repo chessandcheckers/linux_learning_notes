@@ -162,3 +162,10 @@ Since here we want the decoded text from the file `data.txt`, the command we sha
 
 ---
 ## Level 11 -> 12
+
+This level introduces another encoding technique called `ROT13`.
+`ROT13` is used when the characters have been encoded by rotating them or shifting them by 13 positions.
+Applying `ROT13` twice will lead us back to the original text as 13+13=26 and there are 26 letters in the alphabet.
+However, Linux doesn't have a dedicated `ROT13` command. We use `tr` instead, which stands for `translate`. It replaces one set of characters with another. 
+Its general syntax is: `tr 'SET1' 'SET2'`
+As with `base64`, we can ask the terminal for help with `ROT13` or `tr` too using the command `man tr` or `tr --help` 
