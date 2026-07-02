@@ -151,11 +151,11 @@ The output will contain something like:
 This is basically the format to use `base64`
 You will also see some options:
 `OPTIONS:`
-`  -d, --decode          decode data [aliases: -D]`
-`  -i, --ignore-garbage  when decoding, ignore non-alphabetic characters`
-`  -w, --wrap <COLS>     wrap encoded lines after COLS character (default 76, 0 to disable wrapping)`
-`  -h, --help            Print help`
-`  -V, --version         Print version`
+`  -d or --decode : used to decode data [aliases: -D]`
+`  -i, --ignore-garbage : when decoding, ignore non-alphabetic characters`
+`  -w, --wrap <COLS> : wrap encoded lines after COLS character (default 76, 0 to disable wrapping)`
+`  -h, --help : Print help`
+`  -V, --version : Print version`
 
 Since here we want the decoded text from the file `data.txt`, the command we shall use is:
 `base64 -d data.txt`
