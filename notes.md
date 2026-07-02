@@ -137,3 +137,28 @@ The way to this level is to use `strings [filename] | grep "="`
 Here, `grep` is used to find the lines with "=". 
 
 ---
+## Level 10 -> 11
+
+This level introduces us to encryption, specifically `base64` encoded data.
+`base64` is an encoding scheme/format not encryption. This is important.
+Encoding converts data into a publicly standardized format and doesn't require a secret key which makes it easy for anyone to decode it easily. For example base64, ASCII, url encoding.
+
+Encryption prioritizes data security. It converts data into unreadable ciphertext which protects it from unauthorized users. A secret cryptic key and a decrytion algorithm is used to revert the data back to its original form. 
+
+As a way to start, you can start by entering `base64 --help` in the prompt.
+The output will contain something like:
+`Usage: base64 [OPTION]... [FILE]`
+This is basically the format to use `base64`
+You will also see some options:
+`OPTIONS:
+  -d, --decode          decode data [aliases: -D]
+  -i, --ignore-garbage  when decoding, ignore non-alphabetic characters
+  -w, --wrap <COLS>     wrap encoded lines after COLS character (default 76, 0 to disable wrapping)
+  -h, --help            Print help
+  -V, --version         Print version
+`
+Since here we want the decoded text from the file `data.txt`, the command we shall use is:
+`base64 -d data.txt`
+
+---
+## Level 11 -> 12
