@@ -125,3 +125,15 @@ The pipeline `|` here acts as a bridge between the two commands. `sort data.txt`
 `|` is used here because we want the output of the left side command to become the input of the right side. 
 
 ---
+## Level 9 -> 10
+
+The password we require is preceded by many `=`.
+It is one of the very few human readable texts.
+Every time we need to extract human readable text from a binary file, we should think of `strings` command.
+We cannot use `cat` here because the file is mostly binary data which is hard to read.
+We also cannot use `grep` directly because it cannot read easily readable texts.
+
+The way to this level is to use `strings [filename] | grep "="`
+Here, `grep` is used to find the lines with "=". 
+
+---
