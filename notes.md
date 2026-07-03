@@ -169,3 +169,9 @@ Applying `ROT13` twice will lead us back to the original text as 13+13=26 and th
 However, Linux doesn't have a dedicated `ROT13` command. We use `tr` instead, which stands for `translate`. It replaces one set of characters with another. 
 Its general syntax is: `tr 'SET1' 'SET2'`
 As with `base64`, we can ask the terminal for help with `ROT13` or `tr` too using the command `man tr` or `tr --help` 
+
+As we know from the logic, we are rotating by 13 positions. So, A -> N, B -> O, C -> P, and so on till Z -> M.
+So, our command will be comething like: 
+`tr 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz' 'NOPQRSTUVWXYZABCDEFGHIJKLMnopqrstuvwxyzabcdefghijklm' < data.txt`
+or we can also write it as:
+`cat data.txt | tr 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz' 'NOPQRSTUVWXYZABCDEFGHIJKLMnopqrstuvwxyzabcdefghijklm'`
