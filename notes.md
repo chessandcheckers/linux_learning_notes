@@ -175,3 +175,8 @@ So, our command will be comething like:
 `tr 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz' 'NOPQRSTUVWXYZABCDEFGHIJKLMnopqrstuvwxyzabcdefghijklm' < data.txt`
 or we can also write it as:
 `cat data.txt | tr 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz' 'NOPQRSTUVWXYZABCDEFGHIJKLMnopqrstuvwxyzabcdefghijklm'`
+
+---
+## Level 12 -> 13
+
+This level requires us to investigate an unknown file. Instead of 
