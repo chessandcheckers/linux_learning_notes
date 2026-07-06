@@ -179,4 +179,7 @@ or we can also write it as:
 ---
 ## Level 12 -> 13
 
-This level requires us to investigate an unknown file. Instead of 
+This level teaches us to investigate an unknown file.
+The file we need to read is a hexdump file which has been repeatedly compressed. 
+Hexdump is a hexadecimal representation of the file. It is stored as bytes. 
+We use `xxd` command to deal with hexdumps. For the manual: `xxd --help` or `man xxd`
