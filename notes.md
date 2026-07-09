@@ -184,10 +184,6 @@ The file we need to read is a hexdump file which has been repeatedly compressed.
 Hexdump is a hexadecimal representation of the file. It is stored as bytes. 
 We use `xxd` command to deal with hexdumps. For the manual: `xxd --help` or `man xxd`.
 This gives us multiple options:
-Usage:
-       xxd [options] [infile [outfile]]
-    or
-       xxd -r [-s [-]offset] [-c cols] [-ps] [infile [outfile]]
 Options:
     -a          toggle autoskip: A single '*' replaces nul-lines. Default off.
     -b          binary digit dump (incompatible with -ps). Default hex.
@@ -211,3 +207,13 @@ Options:
     -v          show version: "xxd 2025-11-26 by Juergen Weigert et al.".
 
 We want to reverse the hexdump hence we will use the `-r` option. 
+
+First, we start off by creating an empty directory using `mktemp -d` and then copy the file `data.txt` into it using `cp ~/data.txt .`
+After that, we create another file within which we will copy the contents of `data.txt` after converting them to binary.
+We do so by `xxd -r data.txt data`. Here `data` is the output file.
+Once that is clear, we need to convert the contents of `data` into its original format.
+To do so, we need to know the filetype of `data`. We use `file data` to get the output.
+
+We find that `data` is gzip compressed. 
+Further steps would be to understand gzip, so we do `gzip --help`
+
