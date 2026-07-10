@@ -216,6 +216,10 @@ To do so, we need to know the filetype of `data`. We use `file data` to get the 
 
 We find that `data` is gzip compressed. 
 Further steps would be to understand gzip, so we do `gzip --help`
+We go down this rabbit hole of `gzip` and `bzip2` till we come to `POSIX tar archive (GNU)` or something like that.
+
+A common beginners mistake is to do `posix --help` or the like. Even i did that mistake.
+But here, we must do `tar --help` because it is a `tar` archive. `tar`  saves many files together into a single tape or disk archive, and can restore individual files from the archive. 
 
 ---
 ## Level 13 -> 14
