@@ -184,33 +184,19 @@ The file we need to read is a hexdump file which has been repeatedly compressed.
 Hexdump is a hexadecimal representation of the file. It is stored as bytes. 
 We use `xxd` command to deal with hexdumps. For the manual: `xxd --help` or `man xxd`.
 This gives us multiple options:
-Options:
-    -a          toggle autoskip: A single '*' replaces nul-lines. Default off.
-    -b          binary digit dump (incompatible with -ps). Default hex.
+Some useful options:
     -C          capitalize variable names in C include file style (-i).
     -c cols     format <cols> octets per line. Default 16 (-i: 12, -ps: 30).
-    -E          show characters in EBCDIC. Default ASCII.
-    -e          little-endian dump (incompatible with -ps,-i,-r).
-    -g bytes    number of octets per group in normal output. Default 2 (-e: 4).
-    -h          print this summary.
-    -i          output in C include file style.
-    -l len      stop after <len> octets.
-    -n name     set the variable name used in C include output (-i).
-    -o off      add <off> to the displayed file position.
     -ps         output in postscript plain hexdump style.
     -r          reverse operation: convert (or patch) hexdump into binary.
     -r -s off   revert with <off> added to file positions found in hexdump.
-    -d          show offset in decimal instead of hex.
-    -s [+][-]seek  start at <seek> bytes abs. (or +: rel.) infile offset.
-    -u          use upper case hex letters.
-    -R when     colorize the output; <when> can be 'always', 'auto' or 'never'. Default: 'auto'.
-    -v          show version: "xxd 2025-11-26 by Juergen Weigert et al.".
 
 We want to reverse the hexdump hence we will use the `-r` option. 
 
 First, we start off by creating an empty directory using `mktemp -d` and then copy the file `data.txt` into it using `cp ~/data.txt .`
-After that, we create another file within which we will copy the contents of `data.txt` after converting them to binary.
-We do so by `xxd -r data.txt data`. Here `data` is the output file.
+We make a temporary directory to make sure there are no changes in the main files we are using, especially when we want to experiment with the file. 
+After that, we create another file within which we will reconstruct the contents of `data.txt` after to binary.
+We do so by `xxd -r data.txt data`. Here `data` is the output file. `data.txt` is the hexdump file, `data` is the reconstructed binary file. 
 Once that is clear, we need to convert the contents of `data` into its original format.
 To do so, we need to know the filetype of `data`. We use `file data` to get the output.
 
@@ -226,9 +212,19 @@ Keep doing these processes till you enter `file <file_name>` and get an output o
 This file holds your password. 
 This level is the most educational one i came across. 
 
-To sumarise, we learn how to make a temporary directory using `mktemp -d`. Then we learned how to convert a file multiple times - hexadecimals using `xxd` command, `gzip` command, `bzip2` command and `tar` command. 
+Whenever I encountered a new file, I followed the same process:
+
+1. Identify it using `file <file_name>`
+2. Read the output carefully.
+3. Choose the appropriate tool.
+4. Extract or decompress.
+5. Repeat until the final file became plain text.
+
+This taught me to investigate first instead of guessing commands.
+
+To summarize, we learn how to make a temporary directory using `mktemp -d`. Then we learned how to convert a file multiple times - hexadecimals using `xxd` command, `gzip` command, `bzip2` command and `tar` command. 
 We learnt to keep probing the terminal and also learned how to move forward in times of confusion.
-We also learnt how to understand and apply newer commands. 
+I also learnt how to understand and apply newer commands. 
 
 ---
 ## Level 13 -> 14
