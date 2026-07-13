@@ -226,6 +226,10 @@ Keep doing these processes till you enter `file <file_name>` and get an output o
 This file holds your password. 
 This level is the most educational one i came across. 
 
+To sumarise, we learn how to make a temporary directory using `mktemp -d`. Then we learned how to convert a file multiple times - hexadecimals using `xxd` command, `gzip` command, `bzip2` command and `tar` command. 
+We learnt to keep probing the terminal and also learned how to move forward in times of confusion.
+We also learnt how to understand and apply newer commands. 
+
 ---
 ## Level 13 -> 14
 
