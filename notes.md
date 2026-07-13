@@ -221,6 +221,11 @@ We go down this rabbit hole of `gzip` and `bzip2` till we come to `POSIX tar arc
 A common beginners mistake is to do `posix --help` or the like. Even i did that mistake.
 But here, we must do `tar --help` because it is a `tar` archive. `tar`  saves many files together into a single tape or disk archive, and can restore individual files from the archive. 
 
+We continue with `tar -xf data`. Here `-x` is used to extract the file data, `-f` is used to use the file.
+Keep doing these processes till you enter `file <file_name>` and get an output of `ASCII text`.
+This file holds your password. 
+This level is the most educational one i came across. 
+
 ---
 ## Level 13 -> 14
 
