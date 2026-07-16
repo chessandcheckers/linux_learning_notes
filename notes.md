@@ -229,3 +229,4 @@ I also learnt how to understand and apply newer commands.
 ---
 ## Level 13 -> 14
 
+This level asks us to log into `localhost` of `bandit14` using a private SSH key. This key is in the home directory.
