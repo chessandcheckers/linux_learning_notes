@@ -230,3 +230,4 @@ I also learnt how to understand and apply newer commands.
 ## Level 13 -> 14
 
 This level asks us to log into `localhost` of `bandit14` using a private SSH key. This key is in the home directory.
+There used to be a feature where you can login from within the bandit level and access the local host, but that feature has been removed. 
