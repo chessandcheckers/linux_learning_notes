@@ -179,6 +179,8 @@ or we can also write it as:
 ---
 ## Level 12 -> 13
 
+This level onwards we are not dealing with simple commands. We are expected to probe and inspect files, folders and directories to go ahead. We may need more time and effort to understand what exactly each level might require from us and an equal amount of effort if not more to understand and solve the given level. 
+
 This level teaches us to investigate an unknown file.
 The file we need to read is a hexdump file which has been repeatedly compressed. 
 Hexdump is a hexadecimal representation of the file. It is stored as bytes. 
@@ -231,3 +233,5 @@ I also learnt how to understand and apply newer commands.
 
 This level asks us to log into `localhost` of `bandit14` using a private SSH key. This key is in the home directory.
 There used to be a feature where you can login from within the bandit level and access the local host, but that feature has been removed. 
+
+---
