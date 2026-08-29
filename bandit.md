@@ -231,8 +231,27 @@ I also learnt how to understand and apply newer commands.
 ---
 ## Level 13 -> 14
 
-This level asks us to log into `localhost` of `bandit14` using a private SSH key. This key is in the home directory.
-There used to be a feature where you can login from within the bandit level and access the local host, but that feature has been removed. 
+This level is by far the most different.
+In the previous levels, we were given a password and asked to login to the next level using that password. But in this level, we will log into the next level using `scp`. 
+`scp` means Secure Copy. It used `ssh` underneath. 
+
+I tried to log into level 14 from within level 13 using the command `scp -P 2220 bandit13@bandit.labs.overthewire.org:sshkey.private bandit13key`.
+The problem with this was that logging in from `ssh` server using the port `2220` is blocked. To continue, I has to log out from level 13 and instead directly logged into level 14 from my own laptop's command prompt. 
+
+Once that worked, i continued the series of commands:
+`ssh-keygen -y -f bandit13key`
+`ssh -i bandit13key -p 2220 bandit14@bandit.labs.overthewire.org`
+
+You must have noticed, nowhere has the password been entered. This is because the server by default puts in the `sshkey.private` as its password, as shown in the image. 
+![alt text](image.png)
+
+Let's first understand the commands:
+1. Starting with `scp -P 2220 bandit13@bandit.labs.overthewire.org:sshkey.private bandit13key`:
+   Connect to bandit13, go to the home directory of this account, copy `sshkey.private`and save it within my local device as `bandit13key`.
+2. `ssh-keygen -y -f bandit13key`
+    Read the private key, derive its public key. This is done only to verify the key file, if it is valid and readable. 
+3. `ssh -i bandit13key -p 2220 bandit14@bandit.labs.overthewire.org`
+   This logged into level 14 using the `bandit13key` we previously derived. This is the command responsible for eliminating the manual password entry. 
 
 ---
 ## Level 14 -> 15
