@@ -229,29 +229,30 @@ We learnt to keep probing the terminal and also learned how to move forward in t
 I also learnt how to understand and apply newer commands. 
 
 ---
-## Level 13 -> 14
-
-This level is by far the most different.
-In the previous levels, we were given a password and asked to login to the next level using that password. But in this level, we will log into the next level using `scp`. 
-`scp` means Secure Copy. It used `ssh` underneath. 
-
-I tried to log into level 14 from within level 13 using the command `scp -P 2220 bandit13@bandit.labs.overthewire.org:sshkey.private bandit13key`.
-The problem with this was that logging in from `ssh` server using the port `2220` is blocked. To continue, I has to log out from level 13 and instead directly logged into level 14 from my own laptop's command prompt. 
-
-Once that worked, i continued the series of commands:
-`ssh-keygen -y -f bandit13key`
-`ssh -i bandit13key -p 2220 bandit14@bandit.labs.overthewire.org`
-
-You must have noticed, nowhere has the password been entered. This is because the server by default puts in the `sshkey.private` as its password, as shown in the image. 
-![alt text](image.png)
-
-Let's first understand the commands:
-1. Starting with `scp -P 2220 bandit13@bandit.labs.overthewire.org:sshkey.private bandit13key`:
-   Connect to bandit13, go to the home directory of this account, copy `sshkey.private`and save it within my local device as `bandit13key`.
-2. `ssh-keygen -y -f bandit13key`
-    Read the private key, derive its public key. This is done only to verify the key file, if it is valid and readable. 
-3. `ssh -i bandit13key -p 2220 bandit14@bandit.labs.overthewire.org`
-   This logged into level 14 using the `bandit13key` we previously derived. This is the command responsible for eliminating the manual password entry. 
-
+## Level 13 -> 14 
+ 
+This level is by far the most different. 
+In the previous levels, we were given a password and asked to login to the next level using that password. But in this level, using `scp` we copied the private key from level 13 onto our laptop using `scp -P 2220 bandit13@bandit.labs.overthewire.org:sshkey.private bandit13key`.  
+`scp` means Secure Copy. It uses `ssh` underneath.  
+ 
+I initially tried to run the `scp` command from within level 13 using the command `scp -P 2220 bandit13@bandit.labs.overthewire.org:sshkey.private bandit13key`. 
+The problem with this was that OverTheWire blocks connections to the Bandit SSH server from `localhost`. To continue, I had to log out from level 13 and instead run the command from my own laptop's command prompt.  
+ 
+Once that worked, I continued the series of commands: 
+`ssh-keygen -y -f bandit13key` - verified that the private key was readable by getting the public key. 
+`ssh -i bandit13key -p 2220 bandit14@bandit.labs.overthewire.org` - the command that logged me into level 14. 
+ 
+You must have noticed that we never entered the password for Bandit 14. The password shown while running `scp` is actually the password for Bandit 13. It is required to authenticate as Bandit 13 before we are allowed to copy `sshkey.private` from the server onto our laptop. 
+ 
+Once the private key is on our laptop, we use it to authenticate as Bandit 14 instead of entering Bandit 14's password, as shown in the image.  
+![alt text](image.png) 
+ 
+Let's first understand the commands: 
+1. Starting with `scp -P 2220 bandit13@bandit.labs.overthewire.org:sshkey.private bandit13key`: 
+   Connect to bandit13, go to the home directory of this account, copy `sshkey.private` and save it within my local device as `bandit13key`. 
+2. `ssh-keygen -y -f bandit13key` 
+    Read the private key, derive its public key. This is done only to verify the key file, if it is valid and readable.  
+3. `ssh -i bandit13key -p 2220 bandit14@bandit.labs.overthewire.org` 
+   This logged into level 14 using `bandit13key`, the private key we previously copied onto our laptop. The `-i` option tells SSH to use this file as the private key for authentication instead of asking for Bandit 14's password.  
 ---
 ## Level 14 -> 15
